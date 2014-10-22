@@ -4,7 +4,6 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 Person.create(uuid: '000000000000000000000001', first_name: 'Tony', last_name: 'Donnaldsen', gender: 'Male', address: '14 Greentree Street', suburb: 'Winmalee', postcode: '2777', state: 'NSW')
 Person.create(uuid: '000000000000000000000002', first_name: 'Liz', last_name: 'Donnaldsen', gender: 'Female', address: '14 Greentree Street', suburb: 'Winmalee', postcode: '2777', state: 'NSW')
 Person.create(uuid: '000000000000000000000003', first_name: 'Jackie', last_name: 'Ferus', gender: 'Female', address: '23 Yelbon Avenue', suburb: 'Yellow Rock', postcode: '2777', state: 'NSW')
@@ -26,3 +25,4 @@ Person.create(uuid: '000000000000000000000018', first_name: 'Seth', last_name: '
 Person.create(uuid: '000000000000000000000019', first_name: 'Jane', last_name: 'Wilsun', gender: 'Female', address: '44 Redgum Close', suburb: 'Winmalee', postcode: '2777', state: 'NSW')
 Person.create(uuid: '000000000000000000000020', first_name: 'Irene', last_name: 'Yung', gender: 'Female', address: '85 Filmore Street', suburb: 'Winmalee', postcode: '2777', state: 'NSW')
 
+#   Mayor.create(name: 'Emanuel', city: cities.first)
