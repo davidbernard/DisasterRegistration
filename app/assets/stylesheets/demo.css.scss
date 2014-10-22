@@ -1,0 +1,20 @@
+@import "mixins";
+
+.demo {
+  body {
+    @include full-image-background('EM0524.jpg')
+  }
+
+  .spacer {
+    height: 200px;
+  }
+
+
+  #video {
+    margin: auto;
+    border: #ccc solid 10px;
+    border-radius: 10px;
+    padding: 5px;
+    position: relative;
+  }
+}

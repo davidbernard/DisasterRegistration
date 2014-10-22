@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'wizard' => 'wizard#index'
+  get 'demo' => 'demo#show'
+
   resources :service_providers do
     member do
       get 'add_person'
@@ -9,10 +12,11 @@ Rails.application.routes.draw do
   post 'session/login' => 'session#do_login'
   get 'session/logout'
 
+
   resources :people do
     member do
       get 'qr'
-    end    
+    end
   end
 
   root :to => 'welcome#index'

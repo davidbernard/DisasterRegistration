@@ -35,7 +35,10 @@ gem 'sqlite3', :group => [:development, :test]
 
 gem 'bcrypt'
 
+gem 'jquery-smooth-scroll-rails'
+
  #database
+
 
 group :production do
   gem 'thin'
