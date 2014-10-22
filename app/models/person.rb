@@ -1,7 +1,7 @@
 
 class Person
     include MongoMapper::Document
-
+    
     key :first_name, String
     key :last_name, String
     key :dob, Date
@@ -27,25 +27,29 @@ class Person
     before_create :create_uuid
     one :authenticable, :as => :authenticable_object
     timestamps!
- 
-  def name
-    "#{last_name}, #{first_name}"
-  end
-
-  def accessible_for_user authenticable
-    if authenticable.try(:authenticable).nil?
-      true
-    elsif authenticable.authenticable is_a? Person.class
-      authenticable.authenticable == self
-    elsif authenticable.authenticable is_a? ServiceProvider.class
-      authenticable.authenticable_object.clients.include? self
+    
+    def name
+        "#{last_name}, #{first_name}"
     end
-  end
-
-
-  private
-  def create_uuid
-    self.uuid = SecureRandom.uuid
-  end
-  
+    
+    def accessible_for_user authenticable
+        if authenticable.try(:authenticable_object).nil?
+            false
+        elsif authenticable.authenticable_object_type == "Administrator"
+            true
+        elsif authenticable.authenticable_object_type == "Person"
+            authenticable.authenticable_object == self
+        elsif authenticable.authenticable_object_type == "ServiceProvider"
+            authenticable.authenticable_object.person.include? self
+        else
+            false
+        end
+    end
+    
+    
+    private
+    def create_uuid
+        self.uuid = SecureRandom.uuid
+    end
+    
 end
