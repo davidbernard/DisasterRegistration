@@ -16,7 +16,10 @@ class PeopleController < ApplicationController
         response.headers['Content-Length'] = @person.v_card.size.to_s
       }
       format.pdf {
-          pdf = Services::Token.generate_token_pdf(@person, settings.token_media)
+          Rails.logger.info "settings #{settings.token_media}"
+          
+          pdf = Services::Token.generate_token_pdf(@person, settings.token_media,
+                                        ServiceProvider.find_by_special_role(:registration).token_layout)
           send_data pdf.render, filename: "token-#{@person.id}.pdf", type: 'application/pdf'
       }
       format.json { render :json => @person }

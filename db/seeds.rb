@@ -27,6 +27,32 @@ Person.create!(id: '000000000000000000000019', first_name: 'Jane', last_name: 'W
 Person.create!(id: '000000000000000000000020', first_name: 'Irene', last_name: 'Yung', gender: 'Female', address: '85 Filmore Street', suburb: 'Winmalee', postcode: '2777', state: 'NSW')
 
 
+token_layout = Wizard::Wizard.new(content: [
+                                   Wizard::WizardNode.new(name: 'wizard.basic_information', content: [
+                                                          Wizard::Qr.new(
+                                                                         layout: PrintLayout::Layout.new(
+                                                                                                         width: 0.30, height:0.90, left: 0.05, top:0.95)),
+                                                          Wizard::Input.new(attribute: "first_name", label: 'First name', placeholder: '',
+                                                                            layout: PrintLayout::Layout.new(
+                                                                                                            width: 0.30, height:0.20, left: 0.35, top:0.95)),
+                                                          Wizard::Input.new(attribute: "last_name", label: 'Last name', placeholder: '',
+                                                                            layout: PrintLayout::Layout.new({
+                                                                                                            width: 0.30, height: 0.20, left: 0.70, top: 0.95 }))
+                                                          
+                                                          
+                                                          ],
+                                                          layout: PrintLayout::Layout.new(                                                                                                 {
+                                                            width: 1.0, height: 1.0,
+                                                              left: 0.0, top: 1.0
+                                                              }                                                                                                ) )
+                                   
+                                   
+                                   
+                                   ],
+                                   layout: PrintLayout::Layout.new(                                                                                                 {                                                                                                 :width => 1.0, :height => 1.0,
+                                                                   :left => 0.0, :top => 1.0
+                                                                   }                                                                                                )
+                                   )
 registration_wizard = Wizard::Wizard.new(content: [
                                              Wizard::WizardNode.new(name: 'wizard.welcome', content: [
                                                                                               Wizard::Headline.new(text: "Hello, nice to meet you."),
@@ -49,7 +75,7 @@ registration_wizard = Wizard::Wizard.new(content: [
                                                                                                Wizard::Link.new(target: '/people/new', label: 'Start over')
                                                                                            ]),
                                          ])
-ServiceProvider.create!(name: 'FirstStop', wizard: registration_wizard, workbench: nil, special_role: :registration, person: Person.all)
+ServiceProvider.create!(name: 'FirstStop', wizard: registration_wizard, token_layout: token_layout, workbench: nil, special_role: :registration, person: Person.all)
 
 
 tax_wizard = Wizard::Wizard.new(content: [

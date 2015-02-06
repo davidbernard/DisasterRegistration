@@ -12,8 +12,6 @@ Edit the label pdf in `app/services/token.rb`.
 bundle install
 ```
 
-> The cups gem won't work on Yosemite (until late January, maybe?), so you'll have to check it out, make some changes, and build it locally.
-
 ```
 bundle exec rails s
 ```
