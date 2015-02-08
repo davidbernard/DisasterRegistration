@@ -10,4 +10,4 @@ And I am registered in the database using
 | input2-2  | Input 2 - 2 |
 | input3-1  | Input 3 - 1 |
 | input3-2  | Input 3 - 2 |
-Then I should see a token
+Then I can generate and see a token

@@ -1,5 +1,5 @@
 
-Then(/^I should see a token$/) do
+Then(/^I can generate and see a token$/) do
     page.visit '/people/1.pdf'
 end
 

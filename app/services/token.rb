@@ -28,8 +28,8 @@ module Services
         
         parameters = media_parameters[media]
         Rails.logger.info "Parameters #{parameters}"
-        width = parameters[:width].send(:mm)
-        height = parameters[:height].send(:mm)
+        width = parameters[:width].mm
+        height = parameters[:height].mm
 
         layout_engine = PDFLayoutEngine.new()
 
