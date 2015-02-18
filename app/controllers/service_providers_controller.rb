@@ -1,10 +1,16 @@
 class ServiceProvidersController < ApplicationController
-  before_action :set_service_provider, only: [:show, :edit, :update, :destroy, :add_person]
+    before_action :set_service_provider, only: [:show, :edit, :update, :destroy, :add_person]
+    load_and_authorize_resource only: [:index, :show, :edit, :update, :destroy, :add_person]
 
   # GET /service_providers
   # GET /service_providers.json
   def index
     @service_providers = ServiceProvider.all
+    respond_to do |format|
+        format.json { render :json => @service_providers }
+        format.xml  { render :xml => @service_providers }
+        format.html
+    end
   end
 
   # GET /service_providers/1

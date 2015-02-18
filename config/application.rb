@@ -7,6 +7,8 @@ require "active_model/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require "cancan"
+require "role_model"
 
 
 # Require the gems listed in Gemfile, including any gems

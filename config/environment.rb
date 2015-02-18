@@ -6,4 +6,5 @@ Rails.application.initialize!
 
 Rails.application.configure do
   config.gem "httparty"
+  config.gem "cancan"
 end

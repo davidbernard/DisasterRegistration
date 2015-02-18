@@ -10,11 +10,22 @@ gem 'mongo_mapper'
 gem 'bson_ext'
 gem 'exodus'
 
+# Devise authentication
+gem 'devise'
+gem 'mm-devise'
+gem 'cancan'
+gem 'role_model'
+
 gem 'rqrcode_png'
 
 # Printing
 gem 'cups', '~> 0.1.10', group: :printing, require: ['cups', 'cups/printer/printer', 'cups/print_job/transient']
 gem 'prawn', '~> 1.3.0'
+
+# Use bootstrap
+gem 'bootstrap-sass'
+# Layout generation
+gem 'rails_layout', group: :development
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

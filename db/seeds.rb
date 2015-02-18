@@ -120,3 +120,8 @@ housing_wizard = Wizard::Wizard.new(content: [
                                                                                          Wizard::SubmitButton.new(target: 'wizard.register', label: 'Register')
                                                                                      ]) ])
 ServiceProvider.create!(name: 'Housing', wizard: housing_wizard, workbench: housing_workbench, person: Person.all[5..15])
+
+# Create administrator user
+user = CreateAdminService.new.call
+puts 'CREATED ADMIN USER: ' << user.email
+

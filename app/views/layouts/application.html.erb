@@ -27,6 +27,13 @@
 
 </head>
 <body>
+<header>
+
+<%= render 'layouts/navigation'  if current_user %>
+
+<%= render 'layouts/messages' %>
+
+</header>
   <div class="ui one column page grid"><div class="row"><div class="column">
     <%= yield %>
   </div></div></div>

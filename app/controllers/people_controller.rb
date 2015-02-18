@@ -1,7 +1,9 @@
 
 class PeopleController < ApplicationController
+    
   before_action :set_person, only: [:show, :update, :edit]
   before_action :set_service_provider, only: [:edit, :update]
+  before_filter :authenticate_user!, only: [:edit, :update]
 
   def show
     respond_to do |format|

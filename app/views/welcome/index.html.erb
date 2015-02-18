@@ -42,4 +42,15 @@ p {
   <ul>
     <li><%= link_to 'Register', new_person_path %> your details (for demo purposes only)</li>
   </ul>
+  <ul>
+    <li><%= link_to 'Sign In', new_user_session_path %> Sign-in</li>
+  </ul>
+  <ul>
+    <li><%= link_to 'Sign Up', new_user_registration_path %> Sign Up for service organisation access</li>
+  </ul>
+  <ul>
+<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> Sign Out</li>
+  </ul>
+
+
 </div></div>

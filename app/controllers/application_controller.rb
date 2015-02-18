@@ -7,5 +7,10 @@ class ApplicationController < ActionController::Base
   def settings
     Rails.application.config
   end
+  
+  rescue_from CanCan::AccessDenied do |exception|
+  Rails.logger.info "CanCan exception #{exception.message}"
+   redirect_to root_url, :alert => exception.message
+  end
 
 end
